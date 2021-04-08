@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-br">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Dark Divine - Logar</title>
+      <!-- Favicon -->
+      <link rel="shortcut icon" href="assets/images/favicon.ico" />
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+      <!-- Typography CSS -->
+      <link rel="stylesheet" href="assets/css/typography.css">
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="assets/css/style.css">
+      <!-- Responsive CSS -->
+      <link rel="stylesheet" href="assets/css/responsive.css">
+   </head>
+   <body>
+      <!-- loader Start -->
+      <div id="loading">
+         <div id="loading-center">
+         </div>
+      </div>
+      <!-- loader END -->
+        <!-- Sign in Start -->
+        <section class="sign-in-page">
+          <div class="container" style="float: right;width: 394px;">
+            <div class="row justify-content-center align-items-center height-self-center">
+               <div class="col-md-12 align-self-center" style="padding-right: 0px; padding-left: 0px;height: 100%;background: black;">
+                  <div class="sign-user_card " style="height: 100%;">                    
+                     <div class="sign-in-page-data">
+                        <div class="sign-in-from w-100 m-auto">
+                           <h3 class="mb-3 text-center">Resetar senha</h3>
+                           <form class="mt-4">
+                              <div class="form-group">                                 
+                                 <input type="email" class="form-control mb-0" id="email" placeholder="Email" autocomplete="off" required>
+                              </div>
+                                 <div class="sign-info">
+                                    <div class="custom-control custom-checkbox d-inline-block">
+                                    
+                                    </div> 
+                                    <a class="btn btn-primary" onClick="forgotPassword()">Enviar</a>
+                                                                   
+                                 </div>                                    
+                           </form>
+                        </div>
+                     </div>
+                     <div class="mt-3" >
+                        <div class="d-flex justify-content-center links">
+                           Lembra a senha? <a href="/sign-in.html" class="text-primary ml-2">Entrar</a>
+                        </div>
+                       
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Sign in END -->
+            <!-- color-customizer -->
+         </div>
+      </section>
+        <!-- Sign in END -->
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/popper.min.js"></script>
+      <script src="assets/js/bootstrap.min.js"></script>
+      <!-- Appear JavaScript -->
+      <script src="assets/js/jquery.appear.js"></script>
+      <!-- Countdown JavaScript -->
+      <script src="assets/js/countdown.min.js"></script>
+      <!-- Counterup JavaScript -->
+      <script src="assets/js/waypoints.min.js"></script>
+      <script src="assets/js/jquery.counterup.min.js"></script>
+      <!-- Wow JavaScript -->
+      <script src="assets/js/wow.min.js"></script>
+      <!-- Slick JavaScript -->
+      <script src="assets/js/slick.min.js"></script>
+      <!-- Owl Carousel JavaScript -->
+      <script src="assets/js/owl.carousel.min.js"></script>
+      <!-- Magnific Popup JavaScript -->
+      <script src="assets/js/jquery.magnific-popup.min.js"></script>
+      <!-- Smooth Scrollbar JavaScript -->
+      <script src="assets/js/smooth-scrollbar.js"></script>
+      <!-- Chart Custom JavaScript -->
+      <script src="assets/js/chart-custom.js"></script>
+      <!-- Custom JavaScript -->
+      <script src="assets/js/custom.js"></script>
+
+
+
+      <script>
+         function forgotPassword() {
+      var data = {
+        email: document.forms[0].elements[0].value
+      };
+      $.ajax({
+        type: 'POST',
+        url: '/forgot-password',
+        data,
+        success: function (data) {
+          window.alert(data.message);
+          window.location.replace('/');
+        },
+        error: function (xhr) {
+          window.alert(JSON.stringify(xhr));
+          document.forms[0].elements[0].value = '';
+          //window.location.replace('/esqueci-senha.html');
+        }
+      });
+    }
+       </script>
+
+
+   </body>
+</html>
